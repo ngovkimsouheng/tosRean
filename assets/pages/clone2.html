@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Learning - Top Categories Section</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #0a4536;
+        --secondary-color: #ff914d;
+        --background-color: #f8f3e9;
+        --text-color: #797a7c;
+        --accent-color: #fafafa;
+        --card-bg-color: #ffffff; /* White for category cards */
+        --category-count-color: #5cb85c; /* A distinct color for course count */
+        --button-text-color: #ffffff; /* White text for the view all button */
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .categories-section {
+        padding: 80px 20px;
+        text-align: center;
+        background-color: var(
+          --background-color
+        ); /* Ensure consistent background */
+      }
+
+      .categories-section h2 {
+        font-size: 2.8em;
+        color: var(--primary-color); /* Primary color for heading */
+        margin-bottom: 20px;
+      }
+
+      .categories-section p {
+        max-width: 700px;
+        margin: 0 auto 50px auto;
+        font-size: 1.1em;
+        color: var(--text-color);
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-bottom: 50px; /* Space before the button */
+      }
+
+      .category-card {
+        background-color: var(--card-bg-color);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .category-card .icon {
+        font-size: 2.5em;
+        color: var(--primary-color); /* Icon color */
+        background-color: rgba(
+          10,
+          69,
+          54,
+          0.1
+        ); /* Light primary background for icon */
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px; /* fixed width/height for icon container */
+        height: 60px;
+      }
+
+      .category-card h3 {
+        font-size: 1.5em;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+      }
+
+      .category-card .course-count {
+        font-size: 1em;
+        color: var(--category-count-color); /* Green for emphasis */
+        font-weight: bold;
+        background-color: rgba(92, 184, 92, 0.1); /* Light green background */
+        padding: 5px 12px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      .view-all-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 30px;
+        background-color: var(--secondary-color);
+        color: var(--button-text-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 30px; /* Space between grid and button */
+      }
+
+      .view-all-button:hover {
+        background-color: #ff7b2c; /* Slightly darker secondary on hover */
+        transform: translateY(-2px);
+      }
+
+      .view-all-button i {
+        font-size: 1.1em;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .categories-section {
+          padding: 60px 15px;
+        }
+
+        .categories-section h2 {
+          font-size: 2.2em;
+        }
+
+        .categories-section p {
+          font-size: 1em;
+          margin-bottom: 40px;
+        }
+
+        .category-grid {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+        }
+
+        .category-card {
+          padding: 25px;
+        }
+
+        .category-card .icon {
+          font-size: 2em;
+          padding: 12px;
+          width: 50px;
+          height: 50px;
+        }
+
+        .category-card h3 {
+          font-size: 1.3em;
+        }
+
+        .view-all-button {
+          padding: 12px 25px;
+          font-size: 0.9em;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .categories-section {
+          padding: 40px 15px;
+        }
+
+        .categories-section h2 {
+          font-size: 1.8em;
+        }
+
+        .categories-section p {
+          font-size: 0.9em;
+          margin-bottom: 30px;
+        }
+
+        .category-grid {
+          grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+          gap: 15px;
+        }
+
+        .category-card {
+          padding: 20px;
+        }
+
+        .category-card .icon {
+          font-size: 1.8em;
+          padding: 10px;
+          width: 45px;
+          height: 45px;
+        }
+
+        .category-card h3 {
+          font-size: 1.2em;
+        }
+
+        .view-all-button {
+          width: 90%; /* Make button wider on small screens */
+          justify-content: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="categories-section">
+      <h2>Explore Top Categories</h2>
+      <p>
+        Discover a world of knowledge with our expertly curated course
+        categories. Whether you're a beginner or looking to advance your skills,
+        we have something for everyone.
+      </p>
+
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-code"></i></div>
+          <h3>Web Development</h3>
+          <span class="course-count">56+ Courses</span>
+        </div>
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Digital Marketing</h3>
+          <span class="course-count">42+ Courses</span>
+        </div>
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>UI/UX Design</h3>
+          <span class="course-count">38+ Courses</span>
+        </div>
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-vector-square"></i></div>
+          <h3>Graphic Design</h3>
+          <span class="course-count">30+ Courses</span>
+        </div>
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-camera"></i></div>
+          <h3>Photography</h3>
+          <span class="course-count">25+ Courses</span>
+        </div>
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-brain"></i></div>
+          <h3>Data Science</h3>
+          <span class="course-count">48+ Courses</span>
+        </div>
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-robot"></i></div>
+          <h3>AI & Machine Learning</h3>
+          <span class="course-count">50+ Courses</span>
+        </div>
+        <div class="category-card">
+          <div class="icon"><i class="fas fa-handshake"></i></div>
+          <h3>Business & Entrepreneurship</h3>
+          <span class="course-count">65+ Courses</span>
+        </div>
+      </div>
+
+      <a href="#" class="view-all-button">
+        VIEW ALL CATEGORY <i class="fas fa-arrow-right"></i>
+      </a>
+    </section>
+  </body>
+</html>

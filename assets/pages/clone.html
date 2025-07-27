@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning - Hero Section</title>
+    <style>
+        :root {
+            --primary-color: #0A4536;
+            --secondary-color: #FF914D;
+            --background-color: #F8F3E9;
+            --text-color: #797A7C;
+            --accent-color: #FAFAFA;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, var(--primary-color), #0D5C4B); /* Slightly darker primary for gradient */
+            color: white;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px; /* Adjust as needed */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1200px;
+            width: 100%;
+            gap: 40px;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--accent-color); /* Using accent for heading for contrast */
+        }
+
+        .hero-text p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            margin-right: 15px;
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: #FF7B2C; /* Slightly darker secondary for hover */
+        }
+
+        .hero-buttons .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Optional: slight border-radius for the image */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Subtle background shapes for visual interest, inspired by the image */
+        .hero-section::before,
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 0;
+        }
+
+        .hero-section::before {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+        }
+
+        .hero-section::after {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        /* Trusted By Section */
+        .trusted-by {
+            background-color: var(--accent-color);
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .trusted-by h3 {
+            color: var(--text-color);
+            margin-bottom: 25px;
+            font-size: 1.2em;
+        }
+
+        .trusted-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .trusted-logos img {
+            max-height: 50px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        .trusted-logos img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-text p {
+                font-size: 1em;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-buttons .btn {
+                width: 80%;
+                margin: 10px 0;
+            }
+
+            .hero-image {
+                margin-top: 40px;
+            }
+
+            .hero-section::before {
+                width: 200px;
+                height: 200px;
+                top: -30px;
+                left: -30px;
+            }
+
+            .hero-section::after {
+                width: 300px;
+                height: 300px;
+                bottom: -70px;
+                right: -70px;
+            }
+
+            .trusted-by {
+                padding: 20px 10px;
+            }
+
+            .trusted-logos {
+                gap: 20px;
+            }
+
+            .trusted-logos img {
+                max-height: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-section {
+                padding: 60px 15px;
+                min-height: 400px;
+            }
+
+            .hero-text h1 {
+                font-size: 2em;
+            }
+
+            .hero-text p {
+                font-size: 0.95em;
+            }
+
+            .hero-buttons .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+
+            .hero-image {
+                margin-top: 30px;
+            }
+
+            .hero-section::before {
+                width: 150px;
+                height: 150px;
+                top: -20px;
+                left: -20px;
+            }
+
+            .hero-section::after {
+                width: 250px;
+                height: 250px;
+                bottom: -50px;
+                right: -50px;
+            }
+
+            .trusted-by h3 {
+                font-size: 1.1em;
+                margin-bottom: 20px;
+            }
+
+            .trusted-logos img {
+                max-height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Master New Skills, Achieve Your Dreams.</h1>
+                <p>Unlock your potential with our comprehensive online courses. Learn from industry experts at your own pace, anytime, anywhere.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Explore Courses</a>
+                    <a href="#" class="btn btn-secondary">How It Works</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img width="350px" src="../img/teacher1.jpg" alt="Student learning on laptop">
+            </div>
+        </div>
+    </section>
+
+    <section class="trusted-by">
+        <h3>Trusted by Leading Organizations</h3>
+        <div class="trusted-logos">
+            <img src="https://via.placeholder.com/120x40/FAFAFA/797A7C?text=Company+A" alt="Company A Logo">
+            <img src="https://via.placeholder.com/120x40/FAFAFA/797A7C?text=Company+B" alt="Company B Logo">
+            <img src="https://via.placeholder.com/120x40/FAFAFA/797A7C?text=Company+C" alt="Company C Logo">
+            <img src="https://via.placeholder.com/120x40/FAFAFA/797A7C?text=Company+D" alt="Company D Logo">
+            <img src="https://via.placeholder.com/120x40/FAFAFA/797A7C?text=Company+E" alt="Company E Logo">
+        </div>
+    </section>
+
+</body>
+</html>
